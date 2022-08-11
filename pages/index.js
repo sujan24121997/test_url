@@ -74,6 +74,6 @@ export default function Home({wildcard}) {
 
 
 export async function getServerSideProps(context) {
-  let wildcard = context.req.headers.host.split(".")[0];
+  let wildcard = context.req.headers.host;
   return { props: { wildcard } };
 }
