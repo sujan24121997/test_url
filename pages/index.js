@@ -74,6 +74,14 @@ export default function Home({wildcard}) {
 
 
 export async function getServerSideProps(context) {
-  let wildcard = context.req.headers.host;
+  let wildcard = context.req.headers['requested-domain'];
+  console.log("=================================")
+  console.log(context.req.headers)
+  console.log("=================================")
+  // check if wildcard is not empty
+  if(wildcard) {
   return { props: { wildcard } };
+  }else{
+    return { props: { wildcard: '' } };
+  }
 }
